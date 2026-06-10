@@ -10,15 +10,16 @@ import re
 ar = ArabicStemmer()
 en = EnglishStemmer()
 
-model = SentenceTransformer('../retriever/models/multilingual-e5-base')
+model = SentenceTransformer('../retriever/models/multilingual-e5-base') 
 
 def text_stemmer(text, language = 'En'): 
-    tokens = text.lower().replace('_', ' ').replace('/', ' ').split()
+    tokens = text.lower().replace('_', ' ').replace('/', ' ').split() 
     res = []
     if language == 'En':
         for token in tokens:
             res.append(en.stem(token))
     else: 
+        # Split and stem English words in Arabic queries "code-switching" (e.g. عدد الusers )
         for token in tokens:
             match = re.search('([\u0600-\u06FF]*)([A-Za-z]+)([\u0600-\u06FF]*)', token)
             ignore = ['', 'ال', 'و']
@@ -29,6 +30,7 @@ def text_stemmer(text, language = 'En'):
                 if match.group(3) not in ignore:
                     res.append(ar.stem(match.group(3)))
             else:
+                # Stem Arabic words
                 res.append(ar.stem(token))
                 
     return ' '.join(res)
@@ -50,7 +52,9 @@ def create_passage(table):
 
 
 
-with open('tables.json', 'r', encoding='utf-8') as f:
+with open('tables.json', 'r', encoding='utf-8') as f: 
+    # File "tables.json" is not included due to SESAME privacy constraints
+    # The file contains a structured dict for each table as following: {"table": , "columns": [], "description_En": , "description_Ar": , "comments": []}
     tables = json.load(f)
 
 table_names = [t['table'] for t in tables]
@@ -58,19 +62,24 @@ passages = [create_passage(t) for t in tables]
 
 
 with open('empty_tables.json', 'r') as fl:
+    # File "empty_tables.json" is not included due to SESAME privacy constraints
+    # The file contains a list with the names of tables with no data
     empty_tables = json.load(fl)
 empty_tables = set(e.lower() for e in empty_tables) 
 
-# Tokenize and index BM25
+# Tokenize and index passages using BM25
 retriever = bm25s.BM25()
 corpus_tokens = bm25s.tokenize(passages)
 retriever.index(corpus_tokens)
 
+# Load FAISS index
 index = faiss.read_index('schema_index.faiss')
 
 
 def retrieve_faiss(nl_query, top_k):
-    nl_embedding = model.encode([f'query: {nl_query}'], normalize_embeddings=True, convert_to_numpy=True)
+    # Embed the NL query using "Multilingual-E5-Base" (found in the top of the script)
+     nl_embedding = model.encode([f'query: {nl_query}'], normalize_embeddings=True, convert_to_numpy=True)
+    # Search using/within FAISS index
     scores, indices = index.search(nl_embedding, top_k)
 
     result = []
@@ -79,7 +88,8 @@ def retrieve_faiss(nl_query, top_k):
     return result
 
 def exact_name_match(nl_query):
-    check_ar = re.search('[\u0600-\u06FF]+', nl_query)
+    # Check the language of the NL query, if in Arabic --> stem to check for English words within (to match to table names)
+    check_ar = re.search('[\u0600-\u06FF]+', nl_query) 
     if check_ar:
         nl_query = text_stemmer(nl_query, 'Ar')
 
@@ -95,8 +105,8 @@ def exact_name_match(nl_query):
         elif text_stemmer(table_readable) in query_lower or text_stemmer(table_lower) in query_lower:
             matched.append(table)
             continue
-        
-        parts = [p for p in table_lower.split('_') if len(p) > 3]
+        # Match parts of the table name + Exclude any abbreviations or cryptic names (e.g. USR, BML)
+        parts = [p for p in table_lower.split('_') if len(p) > 3] 
         if any(part in query_lower for part in parts):
             matched.append(table)
 
@@ -117,16 +127,20 @@ def retrieve_hybrid(nl_query, top_k):
     tables_faiss = [r['table'].lower() for r in result_faiss]
     tables_bm = [r['table'].lower() for r in result_bm]
     scores = {}
+    # Find score using Reciprocal Rank Fusion (RRF). Depends on the order/rank the retrieved tables are in, the higher the rank the better the score
+    # E.g. table X in BM25 list rank/order = 2 --> rrf score = 0 + 1 / 63 = 0.015
+    # in FAISS list rank/order = 0 --> rrf score = 0.015 (score from BM25) + 1 / 61 = 0.032
     for rank, table in enumerate(tables_bm):
-        scores[table] = scores.get(table, 0) + 1 / (60 + rank + 1)
+        scores[table] = scores.get(table, 0) + 1 / (60 + rank + 1) 
     for rank, table in enumerate(tables_faiss):
         scores[table] = scores.get(table, 0) + 1 / (60 + rank + 1)
 
+    # Get table name exact match and add to the top of the list
     exact_matches = exact_name_match(nl_query)
     for table in exact_matches:
         t = table.lower()
         if t in scores:
-            scores[t] = 1.500
+            scores[t] = 1.500 # Tables already found in the retrieved tables --> placed first
         else:
             scores[t] = 1.000 
 
@@ -134,9 +148,12 @@ def retrieve_hybrid(nl_query, top_k):
     return [{"table": t, "score": f"{scores[t]:.3f}"} for t in merged if t.lower() not in empty_tables][:top_k]
 
 with open('tables.sql', 'r', encoding='utf-8') as f:
+    # File "tables.sql" is not included due to SESAME privacy constraints
+    # The file contains all the datbase tables in DDL format
     full_schema = f.read()
 
 def get_tables(nl_query, top_k):
+    # Retrieve the tables to be passed to the SQL generator
     retrieved = retrieve_hybrid(nl_query, top_k)
     retrieved_table_names = set(r['table'].lower() for r in retrieved)
     extracted_table=[]  
