@@ -10,7 +10,7 @@ import re
 ar = ArabicStemmer()
 en = EnglishStemmer()
 
-model = SentenceTransformer('../models/multilingual-e5-base') 
+model = SentenceTransformer('../retriever_tests/models/multilingual-e5-base') 
 
 def text_stemmer(text, language = 'En'): 
     tokens = text.lower().replace('_', ' ').replace('/', ' ').split() 
