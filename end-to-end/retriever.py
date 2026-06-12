@@ -52,8 +52,7 @@ def create_passage(table):
 
 
 
-with open('tables.json', 'r', encoding='utf-8') as f: 
-    # File "tables.json" is not included due to SESAME privacy constraints
+with open('../data_files/tables.json', 'r', encoding='utf-8') as f: 
     # The file contains a structured dict for each table as following: {"table": , "columns": [], "description_En": , "description_Ar": , "comments": []}
     tables = json.load(f)
 
@@ -61,8 +60,7 @@ table_names = [t['table'] for t in tables]
 passages = [create_passage(t) for t in tables]
 
 
-with open('empty_tables.json', 'r') as fl:
-    # File "empty_tables.json" is not included due to SESAME privacy constraints
+with open('../data_files/empty_tables.json', 'r') as fl:
     # The file contains a list with the names of tables with no data
     empty_tables = json.load(fl)
 empty_tables = set(e.lower() for e in empty_tables) 
@@ -73,7 +71,7 @@ corpus_tokens = bm25s.tokenize(passages)
 retriever.index(corpus_tokens)
 
 # Load FAISS index
-index = faiss.read_index('schema_index.faiss')
+index = faiss.read_index('../data_files/schema_index.faiss')
 
 
 def retrieve_faiss(nl_query, top_k):
@@ -147,8 +145,7 @@ def retrieve_hybrid(nl_query, top_k):
     merged = sorted(scores.keys(), key=lambda t: scores[t], reverse=True)
     return [{"table": t, "score": f"{scores[t]:.3f}"} for t in merged if t.lower() not in empty_tables][:top_k]
 
-with open('tables.sql', 'r', encoding='utf-8') as f:
-    # File "tables.sql" is not included due to SESAME privacy constraints
+with open('../data_files/tables.sql', 'r', encoding='utf-8') as f:
     # The file contains all the datbase tables in DDL format
     full_schema = f.read()
 
