@@ -6,10 +6,13 @@ from peft import PeftModel
 import argparse as ag
 from retriever import get_tables
 
+# End-to-End system inference, gets the schema from the retriever and includes it in the promt
+# The predicted SQL are then saved in a json line file along with the NL query, gold SQL query and language (of NL)
+
 parser = ag.ArgumentParser()
 parser.add_argument('--ver', type=str, required=True)
 parser.add_argument('--beam', type=int, default=4)
-parser.add_argument('--input', type=str, default='test_og')
+parser.add_argument('--input', type=str, default='test')
 
 args = parser.parse_args()
 
@@ -17,9 +20,9 @@ BASE_MODEL = "../models/llama-3-sqlcoder-8b-base"
 FT_MODEL = f"../models/fine_tuned_{args.ver}"
 
 
-PROMPT_FILE = "prompt.md"
-OUTPUT_FILE = f"./out_final/pred_{args.ver}_retrieved_{args.input}.jsonl"
-INPUT_FILE = f'../{args.input}.jsonl'
+PROMPT_FILE = "../data_files/prompt.md"
+OUTPUT_FILE = f"./pred/pred_{args.ver}_retriever_{args.input}.jsonl"
+INPUT_FILE = f'../dataset/{args.input}.jsonl'
 
 MAX_NEW_TOKENS = 512
 MAX_INPUT_TOKENS = 7680  
