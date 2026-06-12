@@ -1,0 +1,2240 @@
+[
+    {
+        "table": "ACCESSES",
+        "description_En":"Lab access requests",
+        "description_Ar":"طلبات استخدام المختبر",
+        "columns": [
+            "ACCESS_ID",
+            "USR_ID",
+            "PROP_ID",
+            "ARRIVAL",
+            "DEPARTURE",
+            "USER_TYPE",
+            "BML_NAME",
+            "STATUS",
+            "INS_ID",
+            "SUBMISSION_DATE",
+            "DESCRIPTION",
+            "LAB_NAME",
+            "RESEARCHER_TYPE",
+            "GUEST_NET",
+            "FACILITY",
+            "VIDEO_ELETTRA",
+            "VIDEO_FERMI"
+        ],
+        "comments": ["COMMENT ON COLUMN ACCESSES.STATUS IS 'Label=Status, List=select code, description from list_of_values where list = ''AccessStatus'''",	
+        "COMMENT ON COLUMN ACCESSES.USER_TYPE IS 'Label=Status, List=select code, description from list_of_values where list = ''UserTypes'''"]
+
+    },
+    {
+        "table": "ACTIONS",
+        "columns": [
+            "ID",
+            "ACT_WHEN",
+            "ACT_WHERE",
+            "WHAT",
+            "USR_ID",
+            "QUERY_STRING",
+            "IPADDR",
+            "REAL_USR_ID"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "ALLOCATION_END",
+        "columns": [
+            "USR_ID",
+            "BML_NAME",
+            "EVENT_DATE",
+            "NOT_SCHEDULED",
+            "TOTAL_PROP"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "AMM_SP01TPR",
+        "columns": [
+            "CODTIPO",
+            "DESCRTIPO",
+            "ORGANIGR",
+            "INFORZE"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "AUDIT_SUP_PERSONAL_DATA_FORM_T",
+        "columns": [
+            "ID",
+            "USR_ID",
+            "REG_DATE",
+            "CASE1A",
+            "CASE2A",
+            "CASE2B",
+            "CASE3A",
+            "CASE3B",
+            "CASE4A",
+            "CASE5A",
+            "CASE5B",
+            "CASE6A",
+            "CASE6B",
+            "CASE7A",
+            "CASE7B",
+            "CASE8A",
+            "CASE8B",
+            "AUD_WHO",
+            "AUD_DATE",
+            "AUD_OPERATION"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "AUDIT_USERS",
+        "columns": [
+            "ID",
+            "NAME",
+            "LASTNAME",
+            "EMAIL",
+            "URL",
+            "STATUS",
+            "PASSWORD",
+            "MAILING",
+            "INS_ID",
+            "PRIVACY",
+            "GENDER",
+            "NATIONALITY",
+            "BIRTH",
+            "COMP_1",
+            "COMP_2",
+            "RESEARCHER_TYPE",
+            "NEW_USER",
+            "BIRTH_CITY",
+            "BIRTH_CNT_ID",
+            "HOME_ADDR",
+            "HOME_CITY",
+            "HOME_CNT_ID",
+            "HOME_ZIP",
+            "SAFETY_VIDEO",
+            "COD_FISCALE",
+            "BIRTH_PROVINCE",
+            "BIRTH_TOWN",
+            "HOME_PROVINCE",
+            "HOME_TOWN",
+            "IDSUBJECT",
+            "CREATION_DATE",
+            "LAST_ACCESS",
+            "EAAHASH",
+            "AUD_WHEN",
+            "AUD_WHO",
+            "AUD_OPERATION",
+            "SEQ_NUM",
+            "AUD_ADM_WHO"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "BALLOTS",
+        "columns": [
+            "VOTER_ID",
+            "CANDIDATE_ID",
+            "BALLOTS_YEAR"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "BANKING",
+        "columns": [
+            "USR_ID",
+            "BANKING_ID",
+            "BANK_NAME",
+            "BANK_ADDRESS",
+            "ACCOUNT",
+            "IBAN",
+            "SWIFT",
+            "ACC_HOLDER",
+            "BANK_CITY",
+            "BANK_CNT_ID"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "BEAMLINES",
+        "description_En":"Beamline names and status of operation",
+        "description_Ar":"اسماء خط الاشعاع و حالة التشغيل/ العمل",
+        "columns": [
+            "NAME",
+            "DESCRIPTION",
+            "HOMEPAGE",
+            "OPERATIVE",
+            "REF_NATION",
+            "SHORT_NAME",
+            "IH_RESEARCH_PERC",
+            "FRONTEND",
+            "VIDEO_ID",
+            "FRACTION",
+            "DEFAULT_CMT_ID",
+            "FACILITY"
+        ],
+        "comments": [
+            "COMMENT ON COLUMN BEAMLINES.REF_NATION IS 'Label=Beamline owner country,List=SELECT code, name FROM countries ORDER BY NAME'"
+        ]
+    },
+    {
+        "table": "BEAMLINES_REQUIRED",
+        "columns": [
+            "ID",
+            "PROP_ID",
+            "BML_NAME"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "BEAMLINE_METHOD",
+        "columns": [
+            "METHOD_ID",
+            "BML_NAME"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "BEAMLINE_METHOD_CAT",
+        "columns": [
+            "ID",
+            "DESCRIPTION"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "BEAMLINE_METHOD_TYPE",
+        "columns": [
+            "ID",
+            "CAT_ID",
+            "DESCRIPTION"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "BT_DISTRIBUTION",
+        "description_En":"Beamtime distribution",
+        "description_Ar":"اوقات/فترات استخدام حزمة الاشعة",
+        "columns": [
+            "SEMESTER",
+            "BML_SHORT_NAME",
+            "TOTAL_AVAIL",
+            "BML_ALLOCATED",
+            "IN_HOUSE",
+            "MAJOR_MAINT",
+            "ILO",
+            "GU_LT",
+            "NU_LT",
+            "AVAIL_LT",
+            "REQUESTED_LT",
+            "AVAIL_GU",
+            "PROPOSALS_GU",
+            "REQUESTED_GU",
+            "AVAIL_NU",
+            "PROPOSALS_NU",
+            "REQUESTED_NU",
+            "GU_RATIO",
+            "NU_RATIO",
+            "TOTAL_RATIO",
+            "AVAIL_FB",
+            "GU_ALREADY_ALLOCATED",
+            "NU_ALREADY_ALLOCATED"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "COMMITTEES",
+        "description_En":"Proposals review committee's name",
+        "description_Ar":"لجان تقييم المقترحات",
+        "columns": [
+            "ID",
+            "NAME",
+            "DESCRIPTION",
+            "CMT_REF_ID",
+            "CMT_TYPE",
+            "STATUS",
+            "FACILITY",
+            "ID"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "COMMITTEE_BEAMLINES",
+        "columns": [
+            "ID",
+            "BML_NAME",
+            "CMT_ID",
+            "ID"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "COMPETENCE",
+        "description_En":"Proposal or user dicipline / reseacrh area",
+        "description_Ar":"مجال البحث للمقترحات او المستخدمين",
+        "columns": [
+            "CODE",
+            "DESCRIPTION",
+            "PRIO"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "COMUNI_ITALIANI",
+        "columns": [
+            "NOME",
+            "PROVINCIA",
+            "REGIONE",
+            "CAP",
+            "PREFISSO",
+            "COD_COMUNE",
+            "COD_ISTAT"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "COUNTRIES",
+        "description_En":"Names and codes of countries of users and institutes",
+        "description_Ar":"اسماء و معرفات الدول للمستخدمين و المنشات او المعاهد",
+        "columns": [
+            "NAME",
+            "CODE",
+            "EU",
+            "IBAN_LEN",
+            "CONT_CODE",
+            "ACCOUNT_POSITION",
+            "ACCOUNT_LENGTH",
+            "CERIC"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "DATES_RANGES",
+        "columns": [
+            "ID",
+            "DTRANGE_BEGIN",
+            "DTRANGE_END",
+            "ACCEPTABLE",
+            "PROP_ID"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "DOCUMENTS",
+        "columns": [
+            "ID",
+            "OID",
+            "PROP_ID",
+            "DESCRIPTION"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "ELEARN_COURSE",
+        "columns": [
+            "ID",
+            "DESCRIPTION",
+            "PRIO",
+            "DATE_START",
+            "DATE_END",
+            "OBL_TYPE",
+            "LEARN_MODE",
+            "TEACHER_ID",
+            "COMPANY_ID",
+            "OBJECTIVES",
+            "CONTENTS",
+            "INITIATIVE_ID",
+            "COST",
+            "HOURS",
+            "HVFO_CODE",
+            "TRAINING_TYPE",
+            "FINANCED_EXT",
+            "LEARNERS_STUD",
+            "LEARNERS_OTHR",
+            "INSTITUTE_ID",
+            "NOTES"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "ELEARN_COURSE_DOWNLOADS",
+        "columns": [
+            "ID",
+            "COURSE_ID",
+            "DOC_ID",
+            "USR_ID",
+            "DOWNLOAD_DATE"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "ELEARN_TESTS",
+        "columns": [
+            "ID",
+            "COURSE_ID",
+            "DESCRIPTION",
+            "MAX_ERRORS",
+            "PRIO"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "ELEARN_TEST_ATTEMPTS",
+        "columns": [
+            "ID",
+            "TEST_ID",
+            "USR_ID",
+            "FROM_IP",
+            "SUBMISSION",
+            "RIGHT",
+            "TOTAL",
+            "PASSED"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "EMAIL_QUEUE",
+        "columns": [
+            "CCADDR",
+            "ID",
+            "MSG",
+            "RESULT",
+            "SENDER",
+            "SEND_DATE",
+            "SENT_DATE",
+            "SUBJ",
+            "TOADDR",
+            "USR_ID",
+            "RETURN_RECEIPT",
+            "PRIO",
+            "BCCADDR"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "ENABLINGS",
+        "columns": [
+            "ID",
+            "OBJECT_ID",
+            "ENBT_ID",
+            "RLT_ID"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "ENABLING_TYPES",
+        "columns": [
+            "ID",
+            "NAME"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "ESTR_ALOHA",
+        "columns": [
+            "ALOHA_ID",
+            "LANGUAGE",
+            "LANG_ID",
+            "ALOHA"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "EU_FINANCIAL_SUPPORT",
+        "columns": [
+            "USR_ID",
+            "ACCESS_ID",
+            "BANKING_ID",
+            "PASSPORT_ID",
+            "ESTIMATE_COST",
+            "NOTES",
+            "TRANSPORTATION",
+            "ROOM_HOTEL"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "EVALUATIONS",
+        "description_En":"Proposal evaluation",
+        "description_Ar":"تقييم القترحات",
+        "columns": [
+            "ID",
+            "SCORE",
+            "COMMENTS",
+            "PROP_ID",
+            "USR_ID",
+            "EVLT_ID",
+            "RELEVANCE",
+            "ORIGINALITY",
+            "LOWRISK",
+            "NEEDELETTRA",
+            "PREVRECORD",
+            "TECHNICAL_EVLT",
+            "BML_OR_CMT",
+            "REALSHIFTS",
+            "STATUS",
+            "FINAL_SCORE",
+            "WEIGHTEDAVERAGE",
+            "COMPETENCE",
+            "QUARTER",
+            "APPLICATION_CATEGORY",
+            "ELECTRON_BEAM",
+            "INTERNAL_COMMENTS",
+            "REEDITING",
+            "REEDIT_COMMENTS"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "EVALUATIONS_ASSIGNMENTS",
+        "columns": [
+            "PROP_ID",
+            "EVALUATOR_ID",
+            "BML_OR_CMT",
+            "EMAILED"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "EVALUATIONS_LOG",
+        "columns": [
+            "ID",
+            "PROP_ID",
+            "USER_ID",
+            "EVENT_DATE",
+            "EVALUATION_TYPE",
+            "BML_OR_CMT"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "EVALUATIONS_SCIENTIFIC",
+        "columns": [
+            "EVALUATIONS_SCIENTIFIC",
+            "ID",
+            "PROP_ID",
+            "PROPOSER",
+            "TITLE",
+            "EVALUATOR",
+            "ASSIGNED_SHIFTS",
+            "SCORE",
+            "COMMENTS"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "EVALUATION_TYPES",
+        "columns": [
+            "EVALUATION_TYPES",
+            "ID",
+            "DESCRIPTION"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "EVENTS",
+        "columns": [
+            "EVENTS",
+            "ID",
+            "EVT_BEGIN",
+            "EVT_END",
+            "ETP_ID",
+            "FACILITY"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "EVENT_PARAMETERS",
+        "columns": [
+            "ID",
+            "VALUE",
+            "EVT_ID",
+            "EPT_ID"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "EVENT_PARAMETER_TYPES",
+        "columns": [
+            "ID",
+            "NAME",
+            "EPT_VIEW"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "EVENT_TYPES",
+        "columns": [
+            "ID",
+            "NAME",
+            "FAMILY_ID"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "FACILITIES",
+        "columns": [
+            "CODE",
+            "DESCRIPTION",
+            "FIRST_PROP_ID",
+            "PRIO"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "FEEDBACKS",
+        "columns": [
+            "FBKT_ID",
+            "SMR_ID",
+            "ID",
+            "SCORE",
+            "FBK_COMMENT"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "FEEDBACK_PARTICIPANTS",
+        "columns": [
+            "ID",
+            "FBK_ID",
+            "USR_ID",
+            "ID"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "FEEDBACK_TYPES",
+        "columns": [
+            "ID",
+            "DESCRIPTION",
+            "NEEDSCORE",
+            "VERSION",
+            "SHOW_ORDER"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "HOLIDAYS",
+        "columns": [
+            "WHEN",
+            "DESCRIPTION",
+            "HOL_TYPE"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "HOME_LINKS",
+        "columns": [
+            "SECTION",
+            "DESCRIPTION",
+            "URL",
+            "PRIO",
+            "VALID_FUNCTION"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "HOME_PANES",
+        "columns": [
+            "NAME",
+            "SECTION_NAME",
+            "SECTION_BIN",
+            "SECTION_PRIO",
+            "TAB_NAME"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "HOME_SECTIONS",
+        "columns": [
+            "NAME",
+            "DESCRIPTION",
+            "VALID_FUNCTION"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "HOME_TABS",
+        "columns": [
+            "NAME",
+            "PANE_NAME",
+            "ORDERING",
+            "LOGO_HREF"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "HTML_ENTITIES",
+        "columns": [
+            "ID",
+            "NAME",
+            "DESCRIPTION",
+            "SUBSTITUTION"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "INFOS",
+        "columns": [
+            "ID",
+            "LANGUAGE",
+            "LABEL",
+            "URL",
+            "FACILITY"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "INSTITUTES",
+        "description_En":"Registered institutes which users are affiliated with",
+        "description_Ar":"اسماء المنشات التي ينتمي اليها المستخدمون",
+        "columns": [
+            "ID",
+            "NAME",
+            "ADDRESS",
+            "CNT_NAME",
+            "CITY",
+            "ZIP",
+            "INS_TYPE",
+            "MODIF_USR_ID",
+            "MODIF_DATE",
+            "STATE_PROV",
+            "ITALIAN_PROV",
+            "ITALIAN_CITY",
+            "END_DATE",
+            "PEC",
+            "NOTES",
+            "EMAIL"
+        ],
+        "comments": [
+            "COMMENT ON COLUMN INSTITUTES.INS_TYPE IS 'Label=Institute Type, List=select code, description from list_of_values where list = ''InstituteType'''",
+            "COMMENT ON COLUMN INSTITUTES.CNT_NAME IS 'Label=Country,List=SELECT NAME AS A FROM COUNTRIES'"
+            ]
+    },
+        {
+        "table": "KEY_BUILDINGS",
+        "columns": [
+            "ID",
+            "TITLE",
+            "DESCRIPTION"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "KEY_FLOORS",
+        "columns": [
+            "ID",
+            "BUILDING_ID",
+            "TITLE",
+            "DESCRIPTION"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "KEY_PHONES",
+        "columns": [
+            "ID",
+            "ROOM_ID",
+            "TITLE",
+            "DESCRIPTION"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "KEY_ROOMS",
+        "columns": [
+            "ID",
+            "FLOOR_ID",
+            "TITLE",
+            "OTHER_NAME",
+            "DESCRIPTION"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "LIGHTSOURCES",
+        "columns": [
+            "ID",
+            "NAME",
+            "TOWN",
+            "CITY",
+            "ADDRESS",
+            "ZIP",
+            "COUNTRY_CODE",
+            "HOMEPAGE",
+            "LOCATION"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "LIST_OF_VALUES",
+        "columns": [
+            "LIST",
+            "CODE",
+            "DESCRIPTION",
+            "ID"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "LOG_EXCEPTIONS",
+        "columns": [
+            "ID",
+            "USR_ID",
+            "REAL_USR_ID",
+            "ACT_WHEN",
+            "ACT_WHERE",
+            "FORMAT_ERROR_STACK",
+            "FORMAT_ERROR_BACKTRACE",
+            "CGI_ENV"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "MATRICULAS",
+        "columns": [
+            "USR_ID",
+            "MATRICULA"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "OFFICES",
+        "columns": [
+            "DESCRIPTION",
+            "ID",
+            "NAME",
+            "DISABLED"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "OWA_DOC_DOCUMENTS",
+        "columns": [
+            "ID",
+            "DOC",
+            "DOC_DATE"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "PARAMETER",
+        "columns": [
+            "ID",
+            "USR_ID",
+            "VALUE",
+            "RLT_ID",
+            "PARMTY_ID"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "PARAMS_TYPES",
+        "columns": [
+            "ID",
+            "NAME",
+            "PARMTY_COMMENT"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "PARTICIPANTS",
+        "description_En":"User, institute and proposal id of users who participated in a proposal for beamtime/experiment",
+        "description_Ar":"المستخدمين المشاركين في التجربة/المقترح",
+        "columns": [
+            "ID",
+            "PROP_ID",
+            "USR_ID",
+            "NAME",
+            "INSTITUTE_NAME",
+            "ADDRESS",
+            "INS_ID"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "PASSPORTS",
+        "columns": [
+            "USR_ID",
+            "PASSPORT_ID",
+            "NATIONALITY",
+            "PASS_NUMBER",
+            "ISSUE_DATE",
+            "EXPIRATION_DATE",
+            "ISSUED_AT",
+            "DOC_TYPE"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "PERMISSIONS",
+        "columns": [
+            "ID",
+            "PERM_GRANT",
+            "RLT_ID"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "PROPOSALS",
+        "description_En":"Main deatails on all proposals submitted by users for beamline experiments",
+        "description_Ar": "التفاصيل المتعلقة بالمقترحات البحثية المقدمة من المستخدمين لاجراء التجارب باستخدام خطوط الاشعاع",
+        "columns": [
+            "ID",
+            "TITLE",
+            "USER_CATEGORY",
+            "RESEARCH_CATEGORY",
+            "EU_SUPPORT",
+            "PHYSICS",
+            "CHEMISTRY",
+            "MEDICAL",
+            "LIFE_SCIENCES",
+            "TECH_INSTRUMENTATION",
+            "OTHER",
+            "SHIFTS",
+            "ELECTRON_BEAM",
+            "PROPOSAL_CATEGORY",
+            "APPLICATION_CATEGORY",
+            "ENERGY",
+            "RESOLUTION",
+            "OTHER_REQUIREMENTS",
+            "SAMPLE_TREATMENT",
+            "AVAILABLE_EQUIPMENT",
+            "ADDITIONAL_EQUIPMENT",
+            "OFFLINE_FACILITIES",
+            "STATUS",
+            "USR_ID",
+            "LOCAL_CONTACT_ID",
+            "SUBMISSION_DATE",
+            "BML_NAME",
+            "PROP_SUBMISSION_DATE",
+            "PREVIOUS_PROPCODE",
+            "EU_SUPPORTED",
+            "REALSHIFTS",
+            "DESCRIPTION",
+            "CONTACT_NAME",
+            "EARTH_SCIENCES",
+            "MATERIALS_SCIENCE",
+            "PHYSICAL_CHEM",
+            "INDUSTRY_COLLABORATION",
+            "INS_ID",
+            "CMT_ID",
+            "RESEARCH_AREA",
+            "ICTP_SUPPORT",
+            "USR_LASTNAME",
+            "REQUIRED_BML_NAME",
+            "FEASIBILITY",
+            "REQ_ALT_BML_NAME",
+            "BML_LOGICAL_OPERATOR",
+            "REQ_ELECTRON_BEAM",
+            "REQ_APPLICATION_CATEGORY",
+            "ALLOCATION_MAIL",
+            "DISCIPLINE",
+            "SUB_DISCIPLINE",
+            "ACHIEVEMENTS",
+            "SEMESTER",
+            "EU_SUPPORT_CRUCIAL",
+            "AUTOSCHEDULING",
+            "AUTOSCHEDULE_COUNTER",
+            "LONGTERM_COMMENTS",
+            "EMAIL_ACHIEV_EXPREP",
+            "EU_REFUNDABLE_DAYS",
+            "MONTHLY",
+            "ICTP_SUPPORTED",
+            "FACILITY",
+            "POLARIZATION",
+            "TUNABILITY",
+            "SAMPLE_TEMPERATURE",
+            "LAST_MINUTE",
+            "BIOSTRUCTX_CODE",
+            "IAEA",
+            "WAYFORLIGHTS",
+            "FERMI_MODE",
+            "ASSIGNMENT_MAIL",
+            "LASERLAB_FUNDED",
+            "LASERLAB_REQUEST",
+            "CULTURAL_HERITAGE",
+            "LAST_CHANGE",
+            "FUND_SOURCE",
+            "NOTES"
+        ],
+        "comments": ["COMMENT ON COLUMN PROPOSALS.STATUS IS 'Label = Status, List= Select code, name from proposals_stataus'",
+	"COMMENT ON COLUMN PROPOSALS.DISCIPLINE IS 'Label=Discipline ,List=SELECT code, description FROM competence ORDER BY prio'",
+	"COMMENT ON COLUMN PROPOSALS.SUB_DISCIPLINE IS 'Label=Sub Discipline ,List=SELECT code, description FROM sub_competence'"
+        ]
+    },
+    
+    {
+        "table": "PROPOSALS_STATUS",
+        "description_En":"None",
+        "description_Ar":"حالات المقترحات",
+        "columns": [
+            "CODE",
+            "NAME"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "PROPOSALS_THRESHOLD",
+        "description_En":"Proposal acceptance limit",
+        "description_Ar":"التقييم الادنى للقبول بالمقترح",
+        "columns": [
+            "SEM",
+            "THRESHOLD",
+            "ADDED_EDITED"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "PROP_ETHICAL_INFOS",
+        "columns": [
+            "CHILDREN",
+            "NOT_ABLE",
+            "VOLUNTEERS",
+            "GENETIC",
+            "BIOLOGICAL",
+            "DATA_COLLECTION",
+            "EMBRYOS",
+            "FOETAL",
+            "EMBRYONIC_STEM",
+            "INFORMATION",
+            "TRACKING",
+            "ANIMALS",
+            "TRANSGENIC_LAB",
+            "TRANSGENIC_FARM",
+            "CLONED_FARM",
+            "NON_HUMAN_PRIMATES",
+            "LOCAL_RESOURCES",
+            "LOCAL_COMMUNITY",
+            "MILITARY",
+            "TERRORIST",
+            "PROP_ID",
+            "USR_ID",
+            "SUBMISSION_DATE"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "PROTEIN_CRYSTALLOGRAPHY_USERS",
+        "columns": [
+            "EMAIL",
+            "LANGUAGE"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "PROVINCE_ITALIANE",
+        "columns": [
+            "COD_PROVINCIA",
+            "NOME",
+            "SIGLA",
+            "COD_REGIONE",
+            "REGIONE",
+            "RIPARTIZIONE_GEOGRAFICA"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "PUBLI",
+        "description_En":"Publications",
+        "description_Ar":"المنشورات",
+        "columns": [
+            "PBL_ID",
+            "TITLE",
+            "CATEGORY",
+            "WORK_DONE_ELE",
+            "ELE_AUTHOR",
+            "JOURNAL_NAME",
+            "VOLUME",
+            "ISSUE",
+            "QTR",
+            "YEAR",
+            "BEAM_1",
+            "BEAM_2",
+            "BEAM_3",
+            "BEAM_4",
+            "PROP_1",
+            "PROP_2",
+            "PROP_3",
+            "PROP_4",
+            "COMMENTS",
+            "EMAIL",
+            "PHONE",
+            "ELE_NUM",
+            "THES_TYPE",
+            "INSTITUTION",
+            "CITY_PUB",
+            "COUNTRY_PUB",
+            "PATENT_NUMB",
+            "REVIEW",
+            "PUB_TYPE",
+            "REVISION",
+            "BOOK_TITLE",
+            "PUBLISHER",
+            "EDITION",
+            "CONFERENCE",
+            "PBL_TYPE",
+            "STATUS",
+            "EDITOR",
+            "ADVISOR",
+            "DAY",
+            "PRES_TYPE",
+            "FPAGE",
+            "UE_SUPPORT",
+            "ICTP_SUPPORT",
+            "OTHER",
+            "SUBMISSION_DATE",
+            "USR_ID",
+            "OTHER_BEAM",
+            "OTHER_LAB",
+            "OTHER_PUBLI_NAME",
+            "CONF_CITY",
+            "CONF_COUNTRY",
+            "CONF_DATE",
+            "URL",
+            "DOI",
+            "REVIEW_PANEL",
+            "IN_HOUSE",
+            "COLLABORATION",
+            "ILO",
+            "REVIEW_WORK",
+            "LABORATORY",
+            "SERIAL_NUMBER",
+            "FROM_PAGE",
+            "TO_PAGE",
+            "LABORATORY_2",
+            "LABORATORY_3",
+            "WORK_DONE_CERIC",
+            "CERIC_SUPPORT"
+        ],
+        "comments": ["COMMENT ON COLUMN PUBLI.WORK_DONE_ELE IS 'List = select code, description from list_of_values where list=''PubliWorkDoneEle'''",
+        "COMMENT ON COLUMN PUBLI.CONF_COUNTRY IS 'List = select code, name from countries'",
+        "COMMENT ON COLUMN PUBLI.COUNTRY_PUB IS 'List = select code, name from countries'"
+        ]
+    },
+    {
+        "table": "PUBLIJRC",
+        "columns": [
+            "TITLE",
+            "IMPACT",
+            "IMMEDIACY",
+            "TYPE",
+            "ISSN"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "PUBLI_AUT",
+        "description_En":"Publication authors",
+        "description_Ar":"مؤلفي المنشورات",
+        "columns": [
+            "ID",
+            "PBL_ID",
+            "AUT_NAME",
+            "AUT_IN",
+            "AUT_COUNTRY",
+            "AUT_ID",
+            "USR_ID"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "PUBLI_ITEMS",
+        "description_En":"Lab, Beamline or Proposal tied to the publication",
+        "description_Ar":"المختبر، خط الاشعاع او المقترح المرتبط بالمنشور",
+        "columns": [
+            "PBL_ID",
+            "CODE",
+            "ITEM_TYPE",
+            "ITEM_ORD"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "PUBLI_SJR",
+        "columns": [
+            "YEAR",
+            "RNK",
+            "JOURNAL",
+            "ISSN",
+            "SJR",
+            "HIDX",
+            "TDOCS",
+            "TDOCS3Y",
+            "TREFS",
+            "TREFS3Y",
+            "CDOCS3Y",
+            "CDOCS2Y",
+            "REFDOCRATIO",
+            "COUNTRY",
+            "JOURNAL_TYPE"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "PUBLI_SJR_TABLES",
+        "columns": [
+            "YEAR",
+            "SJR"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "QUARTERS",
+        "columns": [
+            "NAME"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "REGISTRATIONS",
+        "columns": [
+            "USR_ID",
+            "CODE",
+            "REGISTRATION_DATE",
+            "VUO",
+            "REGISTRATIONS",
+            "CODE"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "RENTAL_CAR",
+        "columns": [
+            "ACCESS_ID",
+            "FLIGHT_CODE",
+            "OTHER_PICK_UP_LOC",
+            "OTHER_RETURN_LOC",
+            "PICK_UP_LOC",
+            "PICK_UP_TIME",
+            "RETURN_LOC",
+            "RETURN_TIME"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "RESOURCES",
+        "columns": [
+            "BUILDING",
+            "DESCRIPTION",
+            "FLOOR",
+            "ID",
+            "NAME",
+            "RESOURCE_GROUP_ID",
+            "ROOM",
+            "NEED_APPROVE",
+            "PRIO",
+            "RES_TYPE",
+            "PHONE",
+            "ROUND_ROW"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "RESOURCE_EVENTS",
+        "columns": [
+            "DATE_END",
+            "DATE_END_SCHEDULING",
+            "DATE_START",
+            "DESCRIPTION",
+            "GENERATOR_ID",
+            "ID",
+            "LAYOUT",
+            "NOTES",
+            "OVERHEAD_PROJECTOR",
+            "PEOPLE_NUMBER",
+            "PERIODICITY",
+            "RESOURCE_ID",
+            "TITLE",
+            "TYPE",
+            "USR_ID",
+            "UTILIZER_ID",
+            "VIDEO_PROJECTOR",
+            "STATUS",
+            "URL",
+            "REMIND_MINUTES",
+            "UV_APPROVE",
+            "UV_WHEN",
+            "UV_MESSAGE",
+            "UV_USR_ID"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "RESOURCE_GRANTS",
+        "columns": [
+            "ID",
+            "RESOURCE_GROUP_ID",
+            "ROLE_ID"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "RESOURCE_GROUPS",
+        "columns": [
+            "DESCRIPTION",
+            "ID",
+            "NAME",
+            "PRIO"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "RESOURCE_MANAGERS",
+        "columns": [
+            "ID",
+            "RESOURCE_GROUP_ID",
+            "USR_ID"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "RESOURCE_PARTICIPANTS",
+        "columns": [
+            "ID",
+            "RESOURCE_EVENT_ID",
+            "USR_ID"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "ROLES",
+        "columns": [
+            "RLT_ID",
+            "USR_ID",
+            "ID"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "ROLE_TYPES",
+        "columns": [
+            "ID",
+            "DESCRIPTION",
+            "PAR_TYPE_ID"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "SAFETY_INFOS",
+        "description_En":"Proposal safety info",
+        "description_Ar":"معلومات السلامة للمقترح",
+        "columns": [
+            "ID",
+            "SUBSTANCE",
+            "FORMULA",
+            "CATEGORY",
+            "OTHER_CATEGORY",
+            "SAFI_SIZE",
+            "MASS",
+            "SURFACE_AREA",
+            "SPACE_GROUP",
+            "CELL_DIMENSIONS",
+            "CONTAINER",
+            "RISK",
+            "RADIOACTIVE",
+            "CORROSIVE",
+            "CONTAMINANT",
+            "BIO_HAZARD",
+            "TOXIC",
+            "OXIDISING",
+            "COMBUSTIVE",
+            "CARCINOGENE",
+            "INFLAMMABLE",
+            "EXPLOSIVE",
+            "EXHAUST_DISPOSAL",
+            "SAMPLE_DISPOSAL",
+            "STATUS",
+            "PROP_ID",
+            "SAFETY_STATUS",
+            "SAFETY_COMMENT",
+            "VOLUME",
+            "PRESSURE",
+            "UNATENDED",
+            "SUPPLIER",
+            "CAS",
+            "SAFETY_RECEIVED",
+            "USAGE_ID"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "SESAME_ACCEPTED_POLICEIS",
+        "description_En":"None",
+        "description_Ar":"سياسات الاستخدام الموافق عليها",
+        "columns": [
+            "ID",
+            "USR_ID",
+            "POLICY_ACCESPTED",
+            "WHEN"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "SESAME_POLICIES",
+        "description_En":"None",
+        "description_Ar":"سياسات الاستخدام",
+        "columns": [
+            "ID",
+            "POLICY",
+            "STATUS",
+            "TITLE"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "STARTING_FUNCTIONS",
+        "columns": [
+            "ID",
+            "STF_PROCEDURE",
+            "GRIDSPHERE_CID"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "STARTUP_MESSAGE",
+        "columns": [
+            "ID",
+            "MSG_TYPE",
+            "BDATE",
+            "EDATE",
+            "MESSAGE"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "SUB_COMPETENCE",
+        "description_En":"Proposal sub dicipline",
+        "description_Ar":"مجال البحث الدقيق للمقترحات",
+        "columns": [
+            "CODE",
+            "COMP_CODE",
+            "DESCRIPTION",
+            "VALID_FROM",
+            "VALID_TO"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "SUMMARIES",
+        "description_En":"Shifts and hours summary for completed experiments/proposals",
+        "description_Ar":"تلخيص للفترات و الساعات المستخدمة خلال اجراء التجربة / وقت الحزمة",
+        
+        "columns": [
+            "ID",
+            "SMR_BEGIN",
+            "SMR_END",
+            "ASSIGNED_SHIFTS",
+            "SETUP_SHIFTS",
+            "USABLE_SHIFTS",
+            "UNUSABLE_SHIFTS",
+            "PROP_ID",
+            "USR_ID",
+            "STATUS",
+            "BML_NAME",
+            "SDATE",
+            "EVENT_ID"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "SUO_FUND_SOURCE",
+        "description_En":"Proposal funding source",
+        "description_Ar":"الجهة الممولة",
+        "columns": [
+            "ID",
+            "FUND_NAME",
+            "OPERATIVE"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "SUO_GUEST_HOUSE_DEFINITION",
+        "description_En":"Deatails on the guest house",
+        "description_Ar":"تفاصيل دار الضيافة",
+        "columns": [
+            "HOUSE_ID",
+            "HOUSE_NAME",
+            "DESCRIPTION",
+            "TOTAL_ROOMS",
+            "ROOM_RATE",
+            "MANAGER_ID",
+            "STATUS",
+            "NOTES"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "SUO_WIFI_REQ_DEVICE",
+        "columns": [
+            "DEVICE_ID",
+            "DEVICE_TYPE"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "SUO_WIFI_REQ_OS_LIST",
+        "columns": [
+            "OS_ID",
+            "OS_NAME"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "SUO_WIFI_REQ_T",
+        "columns": [
+            "REQ_ID",
+            "USER_ID",
+            "DEVICE_TYPE",
+            "OS",
+            "MAC_ADD",
+            "SPECIAL_REQ"
+        ],
+        "comments": ["COMMENT ON COLUMN SUO_WIFI_REQ_T.DEVICE_TYPE IS 'Label=Device Type, List=select code, description from list_of_values where list = ''DeviceType'''"]
+    },
+    {
+        "table": "SUPPORT_LAB_REQUESTS",
+        "columns": [
+            "ID",
+            "LAB_ID",
+            "USR_ID",
+            "UTILIZER_ID",
+            "DESCRIPTION",
+            "NOTES",
+            "CONSUMABLES",
+            "CONSUM_USER_SUPPLIED",
+            "COSTS",
+            "INTERNAL_NOTES",
+            "SUBMISSION_DATE",
+            "DELIVERY_DATE",
+            "CLOSING_DATE",
+            "STATUS",
+            "PROP_ID",
+            "LAB_ACCESS_START",
+            "LAB_ACCESS_END",
+            "LAB_ACCESS",
+            "EQUIPMENT",
+            "EQUIP_USER_SUPPLIED",
+            "WORK_ABILITY",
+            "BEAMLINE",
+            "LABORATORY",
+            "PROJECT",
+            "BADGE_REQUEST"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "SUP_EVENTS_DEF",
+        "columns": [
+            "ID",
+            "NAME",
+            "STARTS_ON",
+            "ENDS_ON",
+            "DEADLINE_LABEL"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "SUP_EVENTS_PP",
+        "description_En":"Users' meeting",
+        "description_Ar":"اجتماع المستخدمين",
+        "columns": [
+            "ID",
+            "TITLE",
+            "USER_CATEGORY",
+            "RESEARCH_CATEGORY",
+            "EU_SUPPORT",
+            "PHYSICS",
+            "CHEMISTRY",
+            "MEDICAL",
+            "LIFE_SCIENCES",
+            "TECH_INSTRUMENTATION",
+            "OTHER",
+            "SHIFTS",
+            "ELECTRON_BEAM",
+            "PROPOSAL_CATEGORY",
+            "APPLICATION_CATEGORY",
+            "ENERGY",
+            "RESOLUTION",
+            "OTHER_REQUIREMENTS",
+            "SAMPLE_TREATMENT",
+            "AVAILABLE_EQUIPMENT",
+            "ADDITIONAL_EQUIPMENT",
+            "OFFLINE_FACILITIES",
+            "STATUS",
+            "USR_ID",
+            "LOCAL_CONTACT_ID",
+            "SUBMISSION_DATE",
+            "BML_NAME",
+            "PROP_SUBMISSION_DATE",
+            "PREVIOUS_PROPCODE",
+            "EU_SUPPORTED",
+            "REALSHIFTS",
+            "DESCRIPTION",
+            "CONTACT_NAME",
+            "EARTH_SCIENCES",
+            "MATERIALS_SCIENCE",
+            "PHYSICAL_CHEM",
+            "INDUSTRY_COLLABORATION",
+            "INS_ID",
+            "CMT_ID",
+            "RESEARCH_AREA",
+            "ICTP_SUPPORT",
+            "USR_LASTNAME",
+            "REQUIRED_BML_NAME",
+            "FEASIBILITY",
+            "REQ_ALT_BML_NAME",
+            "BML_LOGICAL_OPERATOR",
+            "REQ_ELECTRON_BEAM",
+            "REQ_APPLICATION_CATEGORY",
+            "ALLOCATION_MAIL",
+            "DISCIPLINE",
+            "SUB_DISCIPLINE",
+            "ACHIEVEMENTS",
+            "SEMESTER",
+            "EU_SUPPORT_CRUCIAL",
+            "AUTOSCHEDULING",
+            "AUTOSCHEDULE_COUNTER",
+            "LONGTERM_COMMENTS",
+            "EMAIL_ACHIEV_EXPREP",
+            "EU_REFUNDABLE_DAYS",
+            "MONTHLY",
+            "ICTP_SUPPORTED",
+            "FACILITY",
+            "POLARIZATION",
+            "TUNABILITY",
+            "SAMPLE_TEMPERATURE",
+            "LAST_MINUTE",
+            "BIOSTRUCTX_CODE",
+            "IAEA",
+            "WAYFORLIGHTS",
+            "FERMI_MODE",
+            "ASSIGNMENT_MAIL",
+            "LASERLAB_FUNDED",
+            "LASERLAB_REQUEST",
+            "CULTURAL_HERITAGE",
+            "LAST_CHANGE",
+            "FUND_SOURCE",
+            "NOTES"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "SUP_EVENTS_PP_15TH_UM",
+        "description_En":"15th Users' meeting",
+        "description_Ar":"اجتماع المستخدمين 15", 
+        "columns": [
+            "ID",
+            "TITLE",
+            "USER_CATEGORY",
+            "RESEARCH_CATEGORY",
+            "EU_SUPPORT",
+            "PHYSICS",
+            "CHEMISTRY",
+            "MEDICAL",
+            "LIFE_SCIENCES",
+            "TECH_INSTRUMENTATION",
+            "OTHER",
+            "SHIFTS",
+            "ELECTRON_BEAM",
+            "PROPOSAL_CATEGORY",
+            "APPLICATION_CATEGORY",
+            "ENERGY",
+            "RESOLUTION",
+            "OTHER_REQUIREMENTS",
+            "SAMPLE_TREATMENT",
+            "AVAILABLE_EQUIPMENT",
+            "ADDITIONAL_EQUIPMENT",
+            "OFFLINE_FACILITIES",
+            "STATUS",
+            "USR_ID",
+            "LOCAL_CONTACT_ID",
+            "SUBMISSION_DATE",
+            "BML_NAME",
+            "PROP_SUBMISSION_DATE",
+            "PREVIOUS_PROPCODE",
+            "EU_SUPPORTED",
+            "REALSHIFTS",
+            "DESCRIPTION",
+            "CONTACT_NAME",
+            "EARTH_SCIENCES",
+            "MATERIALS_SCIENCE",
+            "PHYSICAL_CHEM",
+            "INDUSTRY_COLLABORATION",
+            "INS_ID",
+            "CMT_ID",
+            "RESEARCH_AREA",
+            "ICTP_SUPPORT",
+            "USR_LASTNAME",
+            "REQUIRED_BML_NAME",
+            "FEASIBILITY",
+            "REQ_ALT_BML_NAME",
+            "BML_LOGICAL_OPERATOR",
+            "REQ_ELECTRON_BEAM",
+            "REQ_APPLICATION_CATEGORY",
+            "ALLOCATION_MAIL",
+            "DISCIPLINE",
+            "SUB_DISCIPLINE",
+            "ACHIEVEMENTS",
+            "SEMESTER",
+            "EU_SUPPORT_CRUCIAL",
+            "AUTOSCHEDULING",
+            "AUTOSCHEDULE_COUNTER",
+            "LONGTERM_COMMENTS",
+            "EMAIL_ACHIEV_EXPREP",
+            "EU_REFUNDABLE_DAYS",
+            "MONTHLY",
+            "ICTP_SUPPORTED",
+            "FACILITY",
+            "POLARIZATION",
+            "TUNABILITY",
+            "SAMPLE_TEMPERATURE",
+            "LAST_MINUTE",
+            "BIOSTRUCTX_CODE",
+            "IAEA",
+            "WAYFORLIGHTS",
+            "FERMI_MODE",
+            "ASSIGNMENT_MAIL",
+            "LASERLAB_FUNDED",
+            "LASERLAB_REQUEST",
+            "CULTURAL_HERITAGE",
+            "LAST_CHANGE",
+            "FUND_SOURCE",
+            "NOTES"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "SUP_EVENTS_PP_16UM",
+        "description_En":"16th Users' meeting",
+        "description_Ar":"اجتماع المستخدمين 16",
+        "columns": [
+            "ID",
+            "TITLE",
+            "USER_CATEGORY",
+            "RESEARCH_CATEGORY",
+            "EU_SUPPORT",
+            "PHYSICS",
+            "CHEMISTRY",
+            "MEDICAL",
+            "LIFE_SCIENCES",
+            "TECH_INSTRUMENTATION",
+            "OTHER",
+            "SHIFTS",
+            "ELECTRON_BEAM",
+            "PROPOSAL_CATEGORY",
+            "APPLICATION_CATEGORY",
+            "ENERGY",
+            "RESOLUTION",
+            "OTHER_REQUIREMENTS",
+            "SAMPLE_TREATMENT",
+            "AVAILABLE_EQUIPMENT",
+            "ADDITIONAL_EQUIPMENT",
+            "OFFLINE_FACILITIES",
+            "STATUS",
+            "USR_ID",
+            "LOCAL_CONTACT_ID",
+            "SUBMISSION_DATE",
+            "BML_NAME",
+            "PROP_SUBMISSION_DATE",
+            "PREVIOUS_PROPCODE",
+            "EU_SUPPORTED",
+            "REALSHIFTS",
+            "DESCRIPTION",
+            "CONTACT_NAME",
+            "EARTH_SCIENCES",
+            "MATERIALS_SCIENCE",
+            "PHYSICAL_CHEM",
+            "INDUSTRY_COLLABORATION",
+            "INS_ID",
+            "CMT_ID",
+            "RESEARCH_AREA",
+            "ICTP_SUPPORT",
+            "USR_LASTNAME",
+            "REQUIRED_BML_NAME",
+            "FEASIBILITY",
+            "REQ_ALT_BML_NAME",
+            "BML_LOGICAL_OPERATOR",
+            "REQ_ELECTRON_BEAM",
+            "REQ_APPLICATION_CATEGORY",
+            "ALLOCATION_MAIL",
+            "DISCIPLINE",
+            "SUB_DISCIPLINE",
+            "ACHIEVEMENTS",
+            "SEMESTER",
+            "EU_SUPPORT_CRUCIAL",
+            "AUTOSCHEDULING",
+            "AUTOSCHEDULE_COUNTER",
+            "LONGTERM_COMMENTS",
+            "EMAIL_ACHIEV_EXPREP",
+            "EU_REFUNDABLE_DAYS",
+            "MONTHLY",
+            "ICTP_SUPPORTED",
+            "FACILITY",
+            "POLARIZATION",
+            "TUNABILITY",
+            "SAMPLE_TEMPERATURE",
+            "LAST_MINUTE",
+            "BIOSTRUCTX_CODE",
+            "IAEA",
+            "WAYFORLIGHTS",
+            "FERMI_MODE",
+            "ASSIGNMENT_MAIL",
+            "LASERLAB_FUNDED",
+            "LASERLAB_REQUEST",
+            "CULTURAL_HERITAGE",
+            "LAST_CHANGE",
+            "FUND_SOURCE",
+            "NOTES"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "SUP_EVENTS_PP_17TH_UM",
+        "description_En":"17th Users' meeting",
+        "description_Ar":"اجتماع المستخدمين 17",
+        "columns": [
+            "ID",
+            "TITLE",
+            "USER_CATEGORY",
+            "RESEARCH_CATEGORY",
+            "EU_SUPPORT",
+            "PHYSICS",
+            "CHEMISTRY",
+            "MEDICAL",
+            "LIFE_SCIENCES",
+            "TECH_INSTRUMENTATION",
+            "OTHER",
+            "SHIFTS",
+            "ELECTRON_BEAM",
+            "PROPOSAL_CATEGORY",
+            "APPLICATION_CATEGORY",
+            "ENERGY",
+            "RESOLUTION",
+            "OTHER_REQUIREMENTS",
+            "SAMPLE_TREATMENT",
+            "AVAILABLE_EQUIPMENT",
+            "ADDITIONAL_EQUIPMENT",
+            "OFFLINE_FACILITIES",
+            "STATUS",
+            "USR_ID",
+            "LOCAL_CONTACT_ID",
+            "SUBMISSION_DATE",
+            "BML_NAME",
+            "PROP_SUBMISSION_DATE",
+            "PREVIOUS_PROPCODE",
+            "EU_SUPPORTED",
+            "REALSHIFTS",
+            "DESCRIPTION",
+            "CONTACT_NAME",
+            "EARTH_SCIENCES",
+            "MATERIALS_SCIENCE",
+            "PHYSICAL_CHEM",
+            "INDUSTRY_COLLABORATION",
+            "INS_ID",
+            "CMT_ID",
+            "RESEARCH_AREA",
+            "ICTP_SUPPORT",
+            "USR_LASTNAME",
+            "REQUIRED_BML_NAME",
+            "FEASIBILITY",
+            "REQ_ALT_BML_NAME",
+            "BML_LOGICAL_OPERATOR",
+            "REQ_ELECTRON_BEAM",
+            "REQ_APPLICATION_CATEGORY",
+            "ALLOCATION_MAIL",
+            "DISCIPLINE",
+            "SUB_DISCIPLINE",
+            "ACHIEVEMENTS",
+            "SEMESTER",
+            "EU_SUPPORT_CRUCIAL",
+            "AUTOSCHEDULING",
+            "AUTOSCHEDULE_COUNTER",
+            "LONGTERM_COMMENTS",
+            "EMAIL_ACHIEV_EXPREP",
+            "EU_REFUNDABLE_DAYS",
+            "MONTHLY",
+            "ICTP_SUPPORTED",
+            "FACILITY",
+            "POLARIZATION",
+            "TUNABILITY",
+            "SAMPLE_TEMPERATURE",
+            "LAST_MINUTE",
+            "BIOSTRUCTX_CODE",
+            "IAEA",
+            "WAYFORLIGHTS",
+            "FERMI_MODE",
+            "ASSIGNMENT_MAIL",
+            "LASERLAB_FUNDED",
+            "LASERLAB_REQUEST",
+            "CULTURAL_HERITAGE",
+            "LAST_CHANGE",
+            "FUND_SOURCE",
+            "NOTES"
+        ],
+        "comments": "None"
+    },
+    
+    {
+        "table": "SUP_EV_EVALUATION",
+        "description_En":"Evaluation of the applications for the Users' meeting",
+        "description_Ar":"نقييم طلبات المشاركة باجتماع المستخدمين",
+        "columns": [
+            "ID",
+            "SCORE",
+            "COMMENTS",
+            "PROP_ID",
+            "USR_ID",
+            "EVLT_ID",
+            "RELEVANCE",
+            "ORIGINALITY",
+            "LOWRISK",
+            "NEEDELETTRA",
+            "PREVRECORD",
+            "TECHNICAL_EVLT",
+            "BML_OR_CMT",
+            "REALSHIFTS",
+            "STATUS",
+            "FINAL_SCORE",
+            "WEIGHTEDAVERAGE",
+            "COMPETENCE",
+            "QUARTER",
+            "APPLICATION_CATEGORY",
+            "ELECTRON_BEAM",
+            "INTERNAL_COMMENTS",
+            "REEDITING",
+            "REEDIT_COMMENTS",
+            "FINAL"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "SUP_EV_EVALUATION_17TH_UM",
+        "description_En":"Evaluation of the applications for the 17th Users' meeting",
+        "description_Ar":"نقييم طلبات المشاركة باجتماع المستخدمين 17",
+        "columns": [
+            "ID",
+            "SCORE",
+            "COMMENTS",
+            "PROP_ID",
+            "USR_ID",
+            "EVLT_ID",
+            "RELEVANCE",
+            "ORIGINALITY",
+            "LOWRISK",
+            "NEEDELETTRA",
+            "PREVRECORD",
+            "TECHNICAL_EVLT",
+            "BML_OR_CMT",
+            "REALSHIFTS",
+            "STATUS",
+            "FINAL_SCORE",
+            "WEIGHTEDAVERAGE",
+            "COMPETENCE",
+            "QUARTER",
+            "APPLICATION_CATEGORY",
+            "ELECTRON_BEAM",
+            "INTERNAL_COMMENTS",
+            "REEDITING",
+            "REEDIT_COMMENTS",
+            "FINAL"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "SUP_PARALLEL_SESSIONS",
+        "columns": [
+            "ID",
+            "FUND_NAME",
+            "OPERATIVE"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "SUP_PERSONAL_DATA_FORM_T",
+        "description_En":"Consent/Authorize name and institution to appear in the Annual Scientific Report for Member Countries.",
+        "description_Ar":"الموافقة على ادراج الاسم والمؤسسة في التقرير العلمي السنوي للدول الأعضاء.",
+        "columns": [
+            "ID",
+            "USR_ID",
+            "REG_DATE",
+            "CASE1A",
+            "CASE2A",
+            "CASE2B",
+            "CASE3A",
+            "CASE3B",
+            "CASE4A",
+            "CASE5A",
+            "CASE5B",
+            "CASE6A",
+            "CASE6B",
+            "CASE7A",
+            "CASE7B",
+            "CASE8A",
+            "CASE8B",
+            "AUD_CHANGER"
+        ],
+        "comments": "None"
+    },
+
+    {
+        "table": "SUP_TECH_PUBLI",
+        "columns": [
+            "PBL_ID",
+            "PBL_TYPE",
+            "AUTHORS",
+            "DESCRIPTION",
+            "DOI",
+            "YEAR",
+            "TEAM"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "TRAVEL_REQUESTS",
+        "columns": [
+            "ID",
+            "USR_ID",
+            "MATRICULA",
+            "EMPLOYEE_ID",
+            "PROTOCOLLO",
+            "CDC",
+            "VDC",
+            "CONTROPARTITA",
+            "DATA_INIZIO",
+            "DATA_FINE",
+            "NAZIONE",
+            "PROVINCIA",
+            "COMUNE",
+            "LOCALITA",
+            "PRESSO",
+            "MOTIVO",
+            "DATA_INVIO",
+            "CAPOGRUPPO",
+            "FIRMA_CAPOGRUPPO",
+            "AHE_CDC_RESP",
+            "FIRMA_RESP_CDC",
+            "STATUS",
+            "REF_REQUEST_ID",
+            "CDC_SPESA_MAX",
+            "CAPOGRUPPO_RESPINTA",
+            "CDC_RESPINTA"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "USERS",
+        "description_En": "Personal information of all registered SESAME users and proposers",
+        "description_Ar": "المعلومات الشخصية لجميع المستخدمين المسجلين في سيسامي",
+        "columns": [
+            "ID",
+            "NAME",
+            "LASTNAME",
+            "EMAIL",
+            "URL",
+            "STATUS",
+            "PASSWORD",
+            "MAILING",
+            "INS_ID",
+            "PRIVACY",
+            "GENDER",
+            "NATIONALITY",
+            "BIRTH",
+            "COMP_1",
+            "COMP_2",
+            "RESEARCHER_TYPE",
+            "NEW_USER",
+            "BIRTH_CITY",
+            "BIRTH_CNT_ID",
+            "HOME_ADDR",
+            "HOME_CITY",
+            "HOME_CNT_ID",
+            "HOME_ZIP",
+            "SAFETY_VIDEO",
+            "COD_FISCALE",
+            "BIRTH_PROVINCE",
+            "BIRTH_TOWN",
+            "HOME_PROVINCE",
+            "HOME_TOWN",
+            "IDSUBJECT",
+            "CREATION_DATE",
+            "LAST_ACCESS",
+            "EAAHASH",
+            "AUDIT_CHANGER",
+            "AUDIT_ADM_CHANGER"
+        ],
+        "comments": [
+            "COMMENT ON COLUMN USERS.HOME_CNT_ID IS 'Label=Country,List=SELECT code, name FROM countries ORDER BY name'",
+            "COMMENT ON COLUMN USERS.BIRTH_CNT_ID IS 'Label=Birth country,List=SELECT code, name FROM countries ORDER BY name'",
+            "COMMENT ON COLUMN USERS.COMP_1 IS 'Label=Competence 1,List=SELECT code, description FROM competence ORDER BY description'",
+            "COMMENT ON COLUMN USERS.COMP_2 IS 'Label=Competence 2 List=SELECT code, description FROM competence ORDER BY description'",
+            "COMMENT ON COLUMN USERS.NATIONALITY IS 'Label=Present nationality,List=SELECT code, name FROM countries ORDER BY name'"
+        ]
+    },
+
+    {
+        "table": "USER_INFOS",
+        "columns": [
+            "ID",
+            "VIEWED",
+            "INF_ID",
+            "USR_ID"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "VIDEOS",
+        "columns": [
+            "ID",
+            "DESCRIPTION",
+            "FACILITY",
+            "ENABLED",
+            "ITEM_TYPE"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "VIDEO_WATCHING",
+        "columns": [
+            "ID",
+            "USR_ID",
+            "VISION_DATE",
+            "VIDEO_ID",
+            "VIGILANCE_ID"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "VISITORS",
+        "description_En": "Personal / visit information of all visitors / visits to SESAME ",
+        "description_Ar": "المعلومات الشخصية/ تفاصيل الزيارة لجميع الزائرين الذين قدموا الى سيسامي",
+        "columns": [
+            "ID",
+            "REQ_DATE",
+            "FAMILY_NAME",
+            "FIRST_NAME",
+            "AFFILIATION",
+            "COUNTRY",
+            "EMAIL",
+            "DATE_OF_ARRIVAL",
+            "TIME_OF_ARRIVAL",
+            "DATE_OF_DEPARTURE",
+            "NOTES_COMMENTS",
+            "TIME_OF_DEPARTURE",
+            "USER_ID",
+            "CHECKEDIN",
+            "BARCODE"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "VISITS",
+        "columns": [
+            "CLASSROOM",
+            "END_NOTE",
+            "ID",
+            "INSTITUTE_ADDRESS",
+            "INSTITUTE_CITY",
+            "INSTITUTE_CNT_ID",
+            "INSTITUTE_NAME",
+            "INSTITUTE_TYPE",
+            "INSTITUTE_ZIP",
+            "VISIT_LANGUAGE_ID",
+            "OTHER_INFORMATION",
+            "REF_EMAIL",
+            "REF_FAX",
+            "REF_LASTNAME",
+            "REF_NAME",
+            "REF_TEL",
+            "STATUS",
+            "SUBMISSION_DATE",
+            "VISITORS",
+            "VISIT_DATE",
+            "PREF_LANGUAGE",
+            "APPROVER_ID",
+            "LOCAL_CONTACT_ID",
+            "INSTITUTE_PROVINCE",
+            "INSTITUTE_TOWN",
+            "BEGIN_DATE",
+            "END_DATE",
+            "GUIDES",
+            "EDIT_LINK",
+            "CANTEEN",
+            "MEALS"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "VUO_COL_COMMENTS",
+        "columns": [
+            "TABLE_NAME",
+            "COLUMN_NAME",
+            "COMMENTS"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "VUO_PREF",
+        "columns": [
+            "ID",
+            "DT_BEGIN",
+            "DT_END",
+            "LABEL",
+            "SEMESTER",
+            "FACILITY",
+            "VUO",
+            "VUO_PREF",
+            "DT_BEGIN",
+            "VUO",
+            "VUO_PREF",
+            "DT_END",
+            "VUO",
+            "VUO_PREF",
+            "LABEL"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "VUO_SESSIONS",
+        "columns": [
+            "COOKIE_VAL",
+            "USR_ID",
+            "REAL_USR_ID",
+            "LOGIN_DATE",
+            "LASTOP_DATE",
+            "LOGOUT_DATE",
+            "UMBRELLA_UID",
+            "UMBRELLA_EAAKEY"
+        ],
+        "comments": "None"
+    },
+    {
+        "table": "XRDCONTINUATIONS",
+        "columns": [
+            "ID",
+            "SAMPLE",
+            "USED_SHIFTS",
+            "TEMPERATURE",
+            "PLATE_SIZE",
+            "ROTATION_ANGLE",
+            "EXPOSURE_TIME",
+            "RESOLUTION",
+            "PROCESSING_PROGRAM",
+            "REFLECTIONS",
+            "RSYM",
+            "RSYM_HRC",
+            "COMPLETENESS",
+            "HEAVY_ATOM",
+            "ANOMALOUS_SIGNAL",
+            "INTERPRETABLE_PATTERSON",
+            "STRUCTURE_SOLVED",
+            "HELPED_MODEL_BUILDING",
+            "PUBBLICATIONS",
+            "PROGRESS",
+            "PROP_ID",
+            "UNIQUE_REFLECTIONS"
+        ],
+        "comments": "None"
+    }
+]
