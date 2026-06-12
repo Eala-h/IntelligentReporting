@@ -71,7 +71,7 @@ corpus_tokens = bm25s.tokenize(passages)
 retriever.index(corpus_tokens)
 
 # Load FAISS index
-index = faiss.read_index('../data_files/schema_index.faiss')
+index = faiss.read_index('schema_index.faiss')
 
 
 def retrieve_faiss(nl_query, top_k):
