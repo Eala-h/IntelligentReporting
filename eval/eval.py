@@ -9,19 +9,20 @@ parser = ag.ArgumentParser()
 # base or fine-tuned model
 parser.add_argument('--ver', type=str, required=True, default='base')
 
-# Noise: N = generation done with gold schema , Y = Generation done using a prompt with noise + gold schema (not the retriever)
+# Noise: N = generation done with gold schema , Y = Generation done using the retriever
 parser.add_argument('--noise', type=str, default='N') 
+parser.add_argument('--input', type=str, default='test')
 
 args = parser.parse_args()
 
 if args.noise == 'N':
     noise = "gold"
-    input_file = f'/pred/pred_{args.ver}_gold.jsonl'
+    input_file = f'../gold_inference/pred/pred_{args.ver}_gold_{args.input}.jsonl'
 else:
-    noise = "noise"
-    input_file = f'/pred/pred_{args.ver}_prompt2.jsonl'
+    noise = "retriever"
+    input_file = f'../end-to-end/pred/pred_{args.ver}_retriever_{args.input}.jsonl'
 
-output_file = f'/tests/eval_{args.ver}_{noise}.json'
+output_file = f'/tests/eval_{args.ver}_{noise}_{args.input}.json'
 
 connection, cursor = connect() 
 
