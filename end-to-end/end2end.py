@@ -27,7 +27,7 @@ INPUT_FILE = f'../dataset/{args.input}.jsonl'
 MAX_NEW_TOKENS = 512
 MAX_INPUT_TOKENS = 7680  
 
-with open(PROMPT_FILE, "r", encoding="utf-8") as f, open('instructions.md', 'r', encoding='utf-8') as fl:
+with open(PROMPT_FILE, "r", encoding="utf-8") as f, open('../data_files/instructions.md', 'r', encoding='utf-8') as fl:
     prompt_template = f.read()
     instrc = fl.read()
 
