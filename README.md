@@ -16,17 +16,16 @@ The dataset was costructed specifically for this project and is split into 3 set
 
 ## Model(s)
 
-The repository contains the final LoRA adapter used for all reported experiments. The adapter and other config files can be found in `models/fine_tuned_v6`
-Earlier experimental checkpoints (1 ~ 5) are omitted to reduce repository size.
+The LoRA adapter weights are not included in this repository due to file size limitations.
 
->Important Note:
->
->All the models used in this project were downloaded and run locally on SESAME computational resources.
->To be able to run the models properly please download the following:
->*for the code to run correctly please save them in a directories named `./models` and `./retriever_tests/models` respectively.
->- [Llama-3-SQLCoder-8B](https://huggingface.co/defog/llama-3-sqlcoder-8b): Used for inference and fine-tuning.
->- [Multilingual-E5-base](https://huggingface.co/intfloat/multilingual-e5-base): Used with the retriever as an embedding model for dense retrieval (using FAISS).
->
+Important Note:
+
+All the models used in this project were downloaded and run locally on SESAME computational resources.
+To be able to run the models properly please download the following:
+*for the code to run correctly please save them in a directories named `./models` and `./retriever_tests/models` respectively.
+- [Llama-3-SQLCoder-8B](https://huggingface.co/defog/llama-3-sqlcoder-8b): Used for inference and fine-tuning.
+- [Multilingual-E5-base](https://huggingface.co/intfloat/multilingual-e5-base): Used with the retriever as an embedding model for dense retrieval (using FAISS).
+
 
 ## Installation and Usage
 Clone the repository and install the Python libraries listed in the `requirements.txt` file.
