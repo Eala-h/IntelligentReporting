@@ -14,10 +14,12 @@ The systme consists of 2 stages:
 
 The dataset was costructed specifically for this project and is split into 3 sets: training, development (dev) and testing. It containes NL (in both Arabic and English) queries and their corresponding Oracle 11g SQL in addtion to a list of tables used in each SQL entry and their schema in DDL format.
 
-## Installation and Usage
-Clone the repository and install the Python libraries listed in the `requirements.txt` file.
+## Model(s)
 
->Note:
+The repository contains the final LoRA adapter used for all reported experiments. The adapter and other config files can be found in `models/fine_tuned_v6`
+Earlier experimental checkpoints (1 ~ 5) are omitted to reduce repository size.
+
+>Important Note:
 >
 >All the models used in this project were downloaded and run locally on SESAME computational resources.
 >To be able to run the models properly please download the following:
@@ -25,7 +27,9 @@ Clone the repository and install the Python libraries listed in the `requirement
 >- [Llama-3-SQLCoder-8B](https://huggingface.co/defog/llama-3-sqlcoder-8b): Used for inference and fine-tuning.
 >- [Multilingual-E5-base](https://huggingface.co/intfloat/multilingual-e5-base): Used with the retriever as an embedding model for dense retrieval (using FAISS).
 >
->The repository contains the final LoRA adapter (`models/fine_tuned_v6`) used for all reported experiments. Earlier experimental checkpoints are omitted to reduce repository size.
+
+## Installation and Usage
+Clone the repository and install the Python libraries listed in the `requirements.txt` file.
 
 **To run the full end-to-end system:**
 ```bash
@@ -72,7 +76,6 @@ To run any of them:
 cd retriever_tests
 python <filename>.py
 ```
-
 ---
 
 CS492-Graduation Project (2)  
