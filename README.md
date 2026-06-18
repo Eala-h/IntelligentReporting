@@ -22,7 +22,7 @@ Important Note:
 
 All the models used in this project were downloaded and run locally on SESAME computational resources.
 To be able to run the models properly please download the following:
-*for the code to run correctly please save them in a directories named `./models` and `./retriever_tests/models` respectively.
+*for the code to run correctly please save them in the directories named `./models` and `./retriever_tests/models` respectively.
 - [Llama-3-SQLCoder-8B](https://huggingface.co/defog/llama-3-sqlcoder-8b): Used for inference and fine-tuning.
 - [Multilingual-E5-base](https://huggingface.co/intfloat/multilingual-e5-base): Used with the retriever as an embedding model for dense retrieval (using FAISS).
 
