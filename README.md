@@ -1,7 +1,6 @@
 # Intelligent Reporting: A Bilingual Text-to-SQL System for Domain-Specific Reporting
 
 This repository contains the implementation of a bilingual (Arabic and English) Text-to-SQL system developed for [SESAME](https://www.sesame.org.jo/) and as a bachelors graduation project. 
-[View the project report/reasearch paper on overleaf](https://www.overleaf.com/read/nwrszttsbxkm#179ac8).
 
 ## Overview
 The system is designed to translate the user's natural language (NL) reporting requests into executable Oracle g11 SQL queries. It was developed and evaluated on SESAME User Portal (SUP) database using a dedicated bilingual dataset.
